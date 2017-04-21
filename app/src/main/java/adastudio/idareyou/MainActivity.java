@@ -18,6 +18,8 @@ import android.view.ViewGroup;
 
 import android.widget.TextView;
 //Ali Test
+//2
+
 public class MainActivity extends AppCompatActivity {
 
     /**
