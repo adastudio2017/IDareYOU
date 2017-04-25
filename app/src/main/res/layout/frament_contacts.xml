@@ -2,7 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="adastudio.idareyou.Fragments.Dare_Fragment">
+    tools:context="adastudio.idareyou.Fragments.Contacts_Fragment">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -14,15 +14,9 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="2"
-            android:text="HELLO WORLD" />
+            android:text="Names to appear dynamically" />
 
-        <ImageButton
-            android:id="@+id/dareButton"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="#0000"
-            android:src="@mipmap/dare_btn_1"
-            android:layout_weight="1.56" />
+
 
     </LinearLayout>
 </FrameLayout>
