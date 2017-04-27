@@ -9,12 +9,13 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:weightSum="10">
+        android:weightSum="100">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:layout_height="0dp"
+            android:orientation="horizontal"
+            android:layout_weight="20">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -37,14 +38,16 @@
         <ImageView
             android:id="@+id/imageView"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:srcCompat="@mipmap/ic_launcher"
-            android:layout_weight="2.89" />
+            android:layout_height="0dp"
+            android:background="@mipmap/ic_launcher"
+            android:visibility="visible"
+            android:layout_weight="30"/>
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:layout_height="0dp"
+            android:orientation="horizontal"
+            android:layout_weight="20">
 
             <TextView
                 android:id="@+id/rank_friends"

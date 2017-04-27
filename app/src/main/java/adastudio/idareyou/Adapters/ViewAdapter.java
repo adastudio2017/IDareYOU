@@ -4,7 +4,9 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 
+import adastudio.idareyou.Fragments.Contacts_Fragment;
 import adastudio.idareyou.Fragments.Dare_Fragment;
+import adastudio.idareyou.Fragments.Profile_Fragment;
 
 /**
  * Created by NoCool on 4/23/2017.
@@ -21,11 +23,26 @@ public class ViewAdapter extends FragmentStatePagerAdapter{
     public Fragment getItem(int position)
     {
 
-        return new Dare_Fragment();
+        Fragment returnFragment;
+        switch (position){
+            case 0:
+                returnFragment= new  Dare_Fragment();
+                break;
+            case 1:
+                returnFragment = new Profile_Fragment();
+                break;
+            case 2:
+                returnFragment = new Contacts_Fragment();
+                break;
+            default:
+                returnFragment = new Dare_Fragment();
+
+    }
+    return returnFragment;
     }
 
     @Override
     public int getCount() {
-        return 1;
+        return 3;
     }
 }

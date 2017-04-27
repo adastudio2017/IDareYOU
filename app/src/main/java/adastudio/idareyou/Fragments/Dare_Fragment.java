@@ -14,8 +14,6 @@ public class Dare_Fragment extends Fragment {
 
 
     private View rootView;
-//    ImageButton dareButton;
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -23,25 +21,7 @@ public class Dare_Fragment extends Fragment {
     {
         rootView= inflater.inflate(R.layout.fragment_dare, container, false);
 
-//        addListenerOnButton();
         return rootView;
     }
 
-//    public void addListenerOnButton() {
-//
-//
-//        dareButton = (ImageButton) rootView.findViewById(R.id.dareButton);
-//        dareButton.setOnClickListener(new View.OnClickListener() {
-//
-//            @Override
-//            public void onClick(View v) {
-//
-//             v.setBackgroundResource(R.mipmap.dare_btn_2);
-//
-//            }
-//
-//        });
-//
-//
-//    }
 }

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:weightSum="100">
+    <ImageView
+        android:id="@+id/contacts_picture_ImageView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="20"
+        android:background="@mipmap/ic_launcher"/>
+    <TextView
+        android:id="@+id/contacts_info_TextView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="40"/>
+    <ImageButton
+        android:id="@+id/contacts_accept_ImageButton"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="20"
+        android:background="@mipmap/ic_launcher"/>
+    <ImageButton
+        android:id="@+id/contacts_dare_ImageButton"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="20"
+        android:background="@mipmap/ic_launcher"/>
+
+</LinearLayout>
