@@ -11,6 +11,9 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+
+import adastudio.idareyou.Objects.Contact_Object;
 import adastudio.idareyou.R;
 
 
@@ -22,11 +25,11 @@ public class Contacts_Item_BaseAdapter extends BaseAdapter {
 
 
     View rootView;
-    String[] contacts;
+    ArrayList<Contact_Object> contacts_list;
 
-    public Contacts_Item_BaseAdapter(Context context, String[] contacts)
+    public Contacts_Item_BaseAdapter(Context context, ArrayList<Contact_Object> contacts_list)
     {
-        this.contacts = contacts;
+        this.contacts_list = contacts_list;
         inflater = ( LayoutInflater )context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
     }
@@ -35,7 +38,7 @@ public class Contacts_Item_BaseAdapter extends BaseAdapter {
 
     @Override
     public int getCount() {
-        return contacts.length;
+        return contacts_list.size();
     }
 
     @Override
@@ -56,12 +59,14 @@ public class Contacts_Item_BaseAdapter extends BaseAdapter {
         rootView = inflater.inflate(R.layout.contact_listview_item, null);
 
 
+        Contact_Object  contact = contacts_list.get(position);
+
         contactHolder.contactsAcceptImageButton = (ImageButton) rootView.findViewById(R.id.contacts_accept_ImageButton);
         contactHolder.contactsDareImageButton = (ImageButton) rootView.findViewById(R.id.contacts_dare_ImageButton);
         contactHolder.contactsInfoTextView = (TextView) rootView.findViewById(R.id.contacts_info_TextView);
         contactHolder.contactsPictureImageView = (ImageView) rootView.findViewById(R.id.contacts_picture_ImageView);
 
-        contactHolder.contactsInfoTextView.setText(contacts[position]);
+        contactHolder.contactsInfoTextView.setText(contact.getContact_name());
 
         return rootView;
     }
