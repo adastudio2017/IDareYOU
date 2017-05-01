@@ -2,29 +2,33 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:weightSum="100">
+    android:weightSum="100"
+    android:background="@drawable/contact_listview_item_shape">
     <ImageView
         android:id="@+id/contacts_picture_ImageView"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:layout_weight="20"
-        android:background="@mipmap/ic_launcher"/>
+        android:layout_margin="1dp"
+        />
     <TextView
         android:id="@+id/contacts_info_TextView"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:layout_weight="40"/>
     <ImageButton
         android:id="@+id/contacts_accept_ImageButton"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:layout_weight="20"
-        android:background="@mipmap/ic_launcher"/>
+        android:background="@drawable/accept"
+        android:layout_marginRight="15dp"
+        android:layout_marginLeft="15dp"/>
     <ImageButton
         android:id="@+id/contacts_dare_ImageButton"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:layout_weight="20"
-        android:background="@mipmap/ic_launcher"/>
+        android:background="@drawable/dare"/>
 
 </LinearLayout>

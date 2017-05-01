@@ -1,15 +1,28 @@
 package adastudio.idareyou.Fragments;
 
+import android.content.ContentResolver;
+import android.content.ContentUris;
 import android.database.Cursor;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.drawable.Drawable;
+import android.net.Uri;
 import android.os.Bundle;
 import android.provider.ContactsContract;
+import android.provider.MediaStore;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
 
+import java.io.ByteArrayInputStream;
+import java.io.InputStream;
+import java.net.URI;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.HashMap;
 
 import adastudio.idareyou.Adapters.Contacts_Item_BaseAdapter;
 import adastudio.idareyou.Objects.Contact_Object;
@@ -20,7 +33,7 @@ import adastudio.idareyou.R;
  * Created by mojar on 4/24/2017.
  */
 
-public class Contacts_Fragment extends Fragment {
+public class Contacts_Fragment extends Fragment  {
 
 
     View rootView;
@@ -41,16 +54,50 @@ public class Contacts_Fragment extends Fragment {
         return rootView;
     }
 
+
+
     public void retriveContactList(ListView contactList) {
 
     }
+    private Bitmap getPhoto(String id){
+
+        Bitmap photo = null;
+        try{
+            InputStream inputStream = ContactsContract.Contacts.openContactPhotoInputStream(
+                    getActivity().getContentResolver(),
+                    ContentUris.withAppendedId(ContactsContract.Contacts.CONTENT_URI , new Long(id).longValue()));
+            if(inputStream != null)
+                photo= BitmapFactory.decodeStream(inputStream);
+
+        }catch (Exception e){
+
+        }
+        return photo;
+    }
+
+    //method to check if a contact object exists in the list based on its name or phone number
+    private Boolean containsName(ArrayList<Contact_Object> list, String name, String phonenumber){
+        boolean flag = false;
+        for (Contact_Object contact : list){
+            if (contact.getContact_name().equals(name) || contact.getContact_phoneNumber().equals(phonenumber)){
+                flag=true;
+                break;
+            }
+        }
+        return flag;
+    }
+
 
 
     private void getContactsIntoArrayList(ArrayList<Contact_Object> contactsList) {
 
         Cursor cursor;
         String name, phonenumber;
-        cursor = getContext().getContentResolver().query(ContactsContract.CommonDataKinds.Phone.CONTENT_URI, null, null, null, null);
+        Uri photoUri;
+        Bitmap picture;
+        ContentResolver cr =getContext().getContentResolver();
+
+        cursor = cr.query(ContactsContract.CommonDataKinds.Phone.CONTENT_URI, null, null, null, null);
 
 
         while (cursor.moveToNext()) {
@@ -59,23 +106,36 @@ public class Contacts_Fragment extends Fragment {
             name = cursor.getString(cursor.getColumnIndex(ContactsContract.CommonDataKinds.Phone.DISPLAY_NAME));
             phonenumber = cursor.getString(cursor.getColumnIndex(ContactsContract.CommonDataKinds.Phone.NUMBER));
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
             if(!phonenumber.isEmpty())
             {
-                Contact_Object contact_temp = new Contact_Object();
 
                 Contact_Object contact = new Contact_Object();
                 contact.setContact_name(name);
                 contact.setContact_phoneNumber(phonenumber);
 
 
-                if(contactsList.size()==1){
-                    contact_temp =contact;
-                }
 
-                if (!contact.getContact_name().equals(contact_temp.getContact_name()) &&
-                        !contact.getContact_phoneNumber().equals(contact_temp.getContact_phoneNumber())){
+                if (containsName(contactsList,contact.getContact_name(),contact.getContact_phoneNumber())==false) {
+                    picture = getPhoto(cursor.getString(cursor.getColumnIndex(ContactsContract.CommonDataKinds.Phone.CONTACT_ID)));
+                    contact.setContact_picture(picture);
                     contactsList.add(contact);
-                    contact_temp = contact;
+
                 }
 
 
@@ -87,7 +147,9 @@ public class Contacts_Fragment extends Fragment {
 
 
 
+
     }
+
 
 
 

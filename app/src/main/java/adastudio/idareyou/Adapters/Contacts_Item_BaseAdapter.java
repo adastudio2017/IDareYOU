@@ -67,6 +67,12 @@ public class Contacts_Item_BaseAdapter extends BaseAdapter {
         contactHolder.contactsPictureImageView = (ImageView) rootView.findViewById(R.id.contacts_picture_ImageView);
 
         contactHolder.contactsInfoTextView.setText(contact.getContact_name());
+        if(contact.getContact_picture()==null){
+          contactHolder.contactsPictureImageView.setImageResource(R.drawable.unknown_contact);
+        }else{
+            contactHolder.contactsPictureImageView.setImageBitmap(contact.getContact_picture());
+        }
+        contactHolder.contactsPictureImageView.setScaleType(ImageView.ScaleType.FIT_XY);
 
         return rootView;
     }
