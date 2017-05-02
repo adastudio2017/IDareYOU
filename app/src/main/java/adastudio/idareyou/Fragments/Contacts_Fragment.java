@@ -56,9 +56,6 @@ public class Contacts_Fragment extends Fragment  {
 
 
 
-    public void retriveContactList(ListView contactList) {
-
-    }
     private Bitmap getPhoto(String id){
 
         Bitmap photo = null;
@@ -106,48 +103,20 @@ public class Contacts_Fragment extends Fragment  {
             name = cursor.getString(cursor.getColumnIndex(ContactsContract.CommonDataKinds.Phone.DISPLAY_NAME));
             phonenumber = cursor.getString(cursor.getColumnIndex(ContactsContract.CommonDataKinds.Phone.NUMBER));
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
             if(!phonenumber.isEmpty())
             {
-
                 Contact_Object contact = new Contact_Object();
                 contact.setContact_name(name);
                 contact.setContact_phoneNumber(phonenumber);
-
-
 
                 if (containsName(contactsList,contact.getContact_name(),contact.getContact_phoneNumber())==false) {
                     picture = getPhoto(cursor.getString(cursor.getColumnIndex(ContactsContract.CommonDataKinds.Phone.CONTACT_ID)));
                     contact.setContact_picture(picture);
                     contactsList.add(contact);
-
                 }
-
-
             }
-
         }
-
         cursor.close();
-
-
-
-
     }
 
 
