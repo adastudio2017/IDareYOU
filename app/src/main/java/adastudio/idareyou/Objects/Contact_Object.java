@@ -15,6 +15,16 @@ public class Contact_Object {
     private String contact_name="John Smith";
     private String contact_phoneNumber ="000";
     private Bitmap contact_picture=null;
+
+    public void setContact_pictureId(String contact_pictureId) {
+        this.contact_pictureId = contact_pictureId;
+    }
+
+    public String getContact_pictureId() {
+        return contact_pictureId;
+    }
+
+    private String contact_pictureId ="";
     private double rank_private = 0.0;
     private double rank_global = 0.0;
 

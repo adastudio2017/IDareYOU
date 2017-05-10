@@ -1,7 +1,6 @@
 package adastudio.idareyou.Adapters;
 
 import android.content.Context;
-import android.provider.Settings;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -21,7 +20,7 @@ import adastudio.idareyou.R;
  * Created by NoCool on 4/26/2017.
  */
 
-public class Contacts_Item_BaseAdapter extends BaseAdapter {
+public class Contacts_Item_BaseAdapter extends BaseAdapter{
 
 
     View rootView;
@@ -55,11 +54,11 @@ public class Contacts_Item_BaseAdapter extends BaseAdapter {
     public View getView(int position, View convertView, ViewGroup parent) {
 
 
-        Holder contactHolder = new Holder();
-        rootView = inflater.inflate(R.layout.contact_listview_item, null);
+        final Holder contactHolder = new Holder();
+        rootView = inflater.inflate(R.layout.contact_recyclerview_item, null);
 
 
-        Contact_Object  contact = contacts_list.get(position);
+        final Contact_Object  contact = contacts_list.get(position);
 
         contactHolder.contactsAcceptImageButton = (ImageButton) rootView.findViewById(R.id.contacts_accept_ImageButton);
         contactHolder.contactsDareImageButton = (ImageButton) rootView.findViewById(R.id.contacts_dare_ImageButton);
@@ -74,9 +73,39 @@ public class Contacts_Item_BaseAdapter extends BaseAdapter {
         }
         contactHolder.contactsPictureImageView.setScaleType(ImageView.ScaleType.FIT_XY);
 
+        contactHolder.contactsPictureImageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v)
+            {
+                Log.d("CONTACT", contact.getContact_name());
+                //create a dialogFragment
+            }
+        });
         return rootView;
+
     }
 
+
+
+//        private class contactImageViewOnClick implements View.OnClickListener
+//    {
+//
+//        String contactName;
+//        public contactImageViewOnClick(String contactName)
+//        {
+//
+//            this.contactName = contactName;
+//        }
+//        @Override
+//        public void onClick(View v)
+//        {
+//
+//            switch (v.getId())
+//            {
+//
+//            }
+//        }
+//    }
     private class Holder
     {
         ImageView contactsPictureImageView;

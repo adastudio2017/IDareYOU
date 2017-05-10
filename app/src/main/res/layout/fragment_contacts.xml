@@ -13,13 +13,13 @@
         android:layout_margin="10dp"
         >
 
-       <ListView
-           android:id="@+id/contacts_item_listview"
+       <android.support.v7.widget.RecyclerView
+           android:id="@+id/contacts_item_recyclerView"
            android:layout_width="match_parent"
            android:layout_height="match_parent"
-           android:background="@drawable/listview_shape">
+           android:background="@drawable/recyclerview_shape"/>
 
-       </ListView>
+
 
     </LinearLayout>
 </FrameLayout>
