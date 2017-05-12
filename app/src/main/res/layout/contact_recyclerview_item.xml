@@ -11,6 +11,7 @@
         android:layout_weight="20"
         android:layout_margin="1dp"
         android:clickable="true"
+        android:src="@drawable/contact_picture_shape"
         />
     <TextView
         android:id="@+id/contacts_info_TextView"

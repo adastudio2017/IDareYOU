@@ -1,0 +1,33 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="adastudio.idareyou.Fragments.Contact_PopUp_Fragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:weightSum="100"
+        android:background="@color/colorAccent">
+
+        <ImageView
+            android:id="@+id/contact_popup_image_imageview"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="50"/>
+
+        <TextView
+            android:id="@+id/contact_popup_rank_f_textview"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="25"/>
+        <TextView
+            android:id="@+id/contact_popup_rank_w_textview"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="25"
+            android:background="@color/colorPrimary"/>
+    </LinearLayout>
+
+</FrameLayout>

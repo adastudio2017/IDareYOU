@@ -3,6 +3,7 @@ package adastudio.idareyou.Adapters;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
+import android.util.Log;
 
 import adastudio.idareyou.Fragments.Contacts_Fragment;
 import adastudio.idareyou.Fragments.Dare_Fragment;
@@ -14,9 +15,13 @@ import adastudio.idareyou.Fragments.Profile_Fragment;
 
 public class ViewAdapter extends FragmentStatePagerAdapter{
 
+    FragmentManager fm;
 
-    public ViewAdapter(FragmentManager fm) {
+    public ViewAdapter(FragmentManager fm)
+    {
         super(fm);
+        this.fm = fm;
+
     }
 
     @Override
@@ -32,8 +37,10 @@ public class ViewAdapter extends FragmentStatePagerAdapter{
                 returnFragment = new Profile_Fragment();
                 break;
             case 2:
+                Log.d("IDAREYOU","INSIDE CASE 2");
                 returnFragment = new Contacts_Fragment();
                 break;
+
             default:
                 returnFragment = new Dare_Fragment();
 

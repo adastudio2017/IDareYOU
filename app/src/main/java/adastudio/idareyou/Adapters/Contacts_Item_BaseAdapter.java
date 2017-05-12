@@ -70,17 +70,11 @@ public class Contacts_Item_BaseAdapter extends BaseAdapter{
           contactHolder.contactsPictureImageView.setImageResource(R.drawable.unknown_contact);
         }else{
             contactHolder.contactsPictureImageView.setImageBitmap(contact.getContact_picture());
+
         }
         contactHolder.contactsPictureImageView.setScaleType(ImageView.ScaleType.FIT_XY);
 
-        contactHolder.contactsPictureImageView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v)
-            {
-                Log.d("CONTACT", contact.getContact_name());
-                //create a dialogFragment
-            }
-        });
+
         return rootView;
 
     }

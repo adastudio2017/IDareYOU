@@ -1,5 +1,7 @@
 package adastudio.idareyou.Fragments;
 
+import android.app.Activity;
+import android.app.DialogFragment;
 import android.content.ContentResolver;
 import android.content.ContentUris;
 import android.content.Context;
@@ -9,7 +11,10 @@ import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.provider.ContactsContract;
+
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.FragmentManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -21,8 +26,10 @@ import android.widget.ListView;
 import java.io.InputStream;
 import java.util.ArrayList;
 
+import adastudio.idareyou.Activites.MainActivity;
 import adastudio.idareyou.Adapters.Contacts_Item_BaseAdapter;
 import adastudio.idareyou.Adapters.Contacts_Recycler_Adapter;
+import adastudio.idareyou.Adapters.ViewAdapter;
 import adastudio.idareyou.Objects.Contact_Object;
 import adastudio.idareyou.R;
 
@@ -33,7 +40,8 @@ import static android.content.ContentValues.TAG;
  * Created by mojar on 4/24/2017.
  */
 
-public class Contacts_Fragment extends Fragment  {
+public class Contacts_Fragment extends Fragment {
+
 
 
     View rootView;
@@ -42,6 +50,10 @@ public class Contacts_Fragment extends Fragment  {
     Context context;
     //Contacts_Item_BaseAdapter contactsListaBaseAdapter;
     Contacts_Recycler_Adapter adapter;
+
+
+
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -57,9 +69,10 @@ public class Contacts_Fragment extends Fragment  {
         RecyclerView contactsRecyclerView = (RecyclerView)rootView.findViewById(R.id.contacts_item_recyclerView);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity().getApplicationContext());
 
-         adapter = new Contacts_Recycler_Adapter(getActivity().getApplicationContext(), contactsList);
+         adapter = new Contacts_Recycler_Adapter(getActivity().getApplicationContext(), contactsList, getActivity());
         contactsRecyclerView.setLayoutManager(layoutManager);
        // context = getActivity().getApplicationContext();
+
 
 
 
@@ -69,9 +82,7 @@ public class Contacts_Fragment extends Fragment  {
 
         contactsRecyclerView.setAdapter(adapter);
 
-        Log.d(TAG,"Test1");
         new  LoadPicturesInBackground().execute(contactsList);
-        Log.d(TAG,"Test2");
         return rootView;
     }
 
@@ -147,7 +158,7 @@ public class Contacts_Fragment extends Fragment  {
         @Override
         protected Void doInBackground(ArrayList<Contact_Object>... contactList)
         {
-            Log.d(TAG, "CONTACT LIST: " + contactList[0].get(0).getContact_name());
+//            Log.d(TAG, "CONTACT LIST: " + contactList[0].get(0).getContact_name());
            for(int i =0; i < contactList[0].size(); i ++)
            {
 
