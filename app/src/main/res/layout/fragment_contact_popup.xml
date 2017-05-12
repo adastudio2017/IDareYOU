@@ -5,23 +5,25 @@
     tools:context="adastudio.idareyou.Fragments.Contact_PopUp_Dialog_Fragment">
 
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_width="200dp"
+        android:layout_height="300dp"
         android:orientation="vertical"
         android:weightSum="100"
-        android:background="@color/colorAccent">
+        >
 
         <ImageView
             android:id="@+id/contact_popup_image_imageview"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="50"/>
+            android:layout_weight="50"
+            android:background="@drawable/unknown_contact"/>
 
         <TextView
             android:id="@+id/contact_popup_rank_f_textview"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="25"/>
+            android:layout_weight="25"
+            android:background="@color/colorAccent"/>
         <TextView
             android:id="@+id/contact_popup_rank_w_textview"
             android:layout_width="match_parent"
