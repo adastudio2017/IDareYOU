@@ -2,7 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="adastudio.idareyou.Fragments.Contact_PopUp_Fragment">
+    tools:context="adastudio.idareyou.Fragments.Contact_PopUp_Dialog_Fragment">
 
     <LinearLayout
         android:layout_width="match_parent"
