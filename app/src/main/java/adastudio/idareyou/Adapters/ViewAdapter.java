@@ -3,7 +3,10 @@ package adastudio.idareyou.Adapters;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
+import android.support.v4.view.ViewPager;
 import android.util.Log;
+import android.view.MotionEvent;
+import android.view.View;
 
 import adastudio.idareyou.Fragments.Contacts_Fragment;
 import adastudio.idareyou.Fragments.Dare_Fragment;
@@ -15,12 +18,10 @@ import adastudio.idareyou.Fragments.Profile_Fragment;
 
 public class ViewAdapter extends FragmentStatePagerAdapter{
 
-    FragmentManager fm;
 
     public ViewAdapter(FragmentManager fm)
     {
         super(fm);
-        this.fm = fm;
 
     }
 
@@ -52,4 +53,46 @@ public class ViewAdapter extends FragmentStatePagerAdapter{
     public int getCount() {
         return 3;
     }
+
+
+//    private MotionEvent swapXY(MotionEvent ev) {
+//        float width = getWidth();
+//        float height = getHeight();
+//
+//        float newX = (ev.getY() / height) * width;
+//        float newY = (ev.getX() / width) * height;
+//
+//        ev.setLocation(newX, newY);
+//
+//        return ev;
+//    }
+//
+//    private class VerticalPageTransformer  implements ViewPager.PageTransformer
+//    {
+//
+//        @Override
+//        public void transformPage(View view, float position)
+//        {
+//
+//            if (position < -1) { // [-Infinity,-1)
+//                // This page is way off-screen to the left.
+//                view.setAlpha(0);
+//
+//            } else if (position <= 1) { // [-1,1]
+//                view.setAlpha(1);
+//
+//                // Counteract the default slide transition
+//                view.setTranslationX(view.getWidth() * -position);
+//
+//                //set Y position to swipe in from top
+//                float yPosition = position * view.getHeight();
+//                view.setTranslationY(yPosition);
+//
+//            } else { // (1,+Infinity]
+//                // This page is way off-screen to the right.
+//                view.setAlpha(0);
+//            }
+//        }
+
+  //  }
 }

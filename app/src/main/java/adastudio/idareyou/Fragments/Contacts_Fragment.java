@@ -1,7 +1,5 @@
 package adastudio.idareyou.Fragments;
 
-import android.app.Activity;
-import android.app.DialogFragment;
 import android.content.ContentResolver;
 import android.content.ContentUris;
 import android.content.Context;
@@ -11,25 +9,18 @@ import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.provider.ContactsContract;
-
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentActivity;
-import android.support.v4.app.FragmentManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ListView;
 
 import java.io.InputStream;
 import java.util.ArrayList;
 
-import adastudio.idareyou.Activites.MainActivity;
-import adastudio.idareyou.Adapters.Contacts_Item_BaseAdapter;
 import adastudio.idareyou.Adapters.Contacts_Recycler_Adapter;
-import adastudio.idareyou.Adapters.ViewAdapter;
 import adastudio.idareyou.Objects.Contact_Object;
 import adastudio.idareyou.R;
 

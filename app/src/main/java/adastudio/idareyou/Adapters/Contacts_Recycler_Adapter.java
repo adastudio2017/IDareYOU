@@ -1,12 +1,10 @@
 package adastudio.idareyou.Adapters;
 
 import android.app.Activity;
-import android.app.Dialog;
 import android.app.DialogFragment;
 import android.app.FragmentManager;
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -67,7 +65,7 @@ public class Contacts_Recycler_Adapter  extends RecyclerView.Adapter<Contacts_Re
                 public void onClick(View v)
                 {
                     DialogFragment contactsPopUpDialogFragment = new Contact_PopUp_Dialog_Fragment();
-                    contactsPopUpDialogFragment.show(activity.getFragmentManager(), "HELLO");
+                    contactsPopUpDialogFragment.show(activity.getFragmentManager(), "Person's Stats");
                 }
             });
 
