@@ -18,6 +18,12 @@
         android:layout_width="0dp"
         android:layout_height="50dp"
         android:layout_weight="40"/>
+    <TextView
+        android:id="@+id/contacts_position_TextView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_weight="0"
+        android:visibility="invisible"/>
     <ImageButton
         android:id="@+id/contacts_accept_ImageButton"
         android:layout_width="0dp"

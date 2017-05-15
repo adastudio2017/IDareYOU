@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.app.DialogFragment;
 import android.app.FragmentManager;
 import android.content.Context;
+import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -48,6 +49,7 @@ public class Contacts_Recycler_Adapter  extends RecyclerView.Adapter<Contacts_Re
         TextView contactsInfoTextView;
         ImageButton contactsDareImageButton;
         ImageButton contactsAcceptImageButton;
+        TextView contactsPosition;
 
 
         public ViewHolder(View itemView)
@@ -55,17 +57,32 @@ public class Contacts_Recycler_Adapter  extends RecyclerView.Adapter<Contacts_Re
             super(itemView);
 
 
+
             contactsAcceptImageButton = (ImageButton) itemView.findViewById(R.id.contacts_accept_ImageButton);
             contactsDareImageButton = (ImageButton) itemView.findViewById(R.id.contacts_dare_ImageButton);
             contactsInfoTextView = (TextView) itemView.findViewById(R.id.contacts_info_TextView);
             contactsPictureImageView = (ImageView) itemView.findViewById(R.id.contacts_picture_ImageView);
+            contactsPosition = (TextView) itemView.findViewById(R.id.contacts_position_TextView);
+
+
+
 
             contactsPictureImageView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v)
                 {
-                    DialogFragment contactsPopUpDialogFragment = new Contact_PopUp_Dialog_Fragment();
+                    Contact_Object contact = contacts_list.get(Integer.parseInt(contactsPosition.getText().toString()));
+                    Bundle info = new Bundle();
+                    info.putParcelable("picture", contact.getContact_picture());
+                    info.putString("name", contact.getContact_name());
+                    info.putDouble("rankF", contact.getRank_private());
+                    info.putDouble("rankW", contact.getRank_global());
+
+
+                    Contact_PopUp_Dialog_Fragment contactsPopUpDialogFragment = new Contact_PopUp_Dialog_Fragment();
+                    contactsPopUpDialogFragment.setArguments(info);
                     contactsPopUpDialogFragment.show(activity.getFragmentManager(), "Person's Stats");
+
                 }
             });
 
@@ -89,6 +106,7 @@ public class Contacts_Recycler_Adapter  extends RecyclerView.Adapter<Contacts_Re
         final Contact_Object  contact = contacts_list.get(position);
 
         holder.contactsInfoTextView.setText(contact.getContact_name());
+        holder.contactsPosition.setText(String.valueOf(position));
         if(contact.getContact_picture()==null){
             holder.contactsPictureImageView.setImageResource(R.drawable.unknown_contact);
         }else{
